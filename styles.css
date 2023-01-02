@@ -1,0 +1,92 @@
+html {
+    height: 100%;
+    margin: 0%;
+    font-family: 'Comic Neue', cursive;
+}
+body {
+    height: 100%;
+    display: flex;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
+fieldset {
+    display:flex;
+    flex-direction: column;
+    border: none;
+    align-items: center;
+}
+label {
+    font-size:18pt;
+}
+.page-title {
+    font-size: 45pt;
+}
+.saved-title {
+    font-size: 37pt;
+}
+.saved {
+    border-left: solid 5px;
+    height: 100%;
+    width: 20%;
+}
+.button {
+    border: solid black 3px;
+    font-size: 50pt;
+    border-radius: 10px;
+    font-family: 'Comic Neue', cursive;
+}
+.button:hover {
+    background: rebeccapurple;
+    color: white;
+    cursor: grab;
+}
+.button-section {
+    display: flex;
+    justify-content: space-evenly;
+}
+.palette {
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+    width: 80%;
+    padding-bottom : 40%;
+    padding-top: 20%;
+}
+.current-palette {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+
+.boxes {
+    height: 150px;
+    width: 150px;
+    border: solid black 6px;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+.color1 {
+    background-color: rgb(92, 63, 28);
+}
+
+.color2 {
+    background-color: red;
+}
+
+.color3 {
+    background-color: blue;
+}
+
+.color4 {
+    background-color: green;
+}
+
+.color5 {
+    background-color: bisque;
+}
