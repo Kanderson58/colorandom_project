@@ -1,14 +1,29 @@
+body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.saved {
+    display: flex;
+    border: solid 5px;
+    padding: 5%;
+    height: 100%;
+}
+
 .current-palette {
+    border: solid 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    padding: 2%;
 }
 
 .boxes {
     width: 100px;
     height: 100px;
     border: solid black 2px;
+    margin: 2%;
 }
 
 .color1 {
