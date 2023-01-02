@@ -1,6 +1,7 @@
 html {
     height: 100%;
     margin: 0%;
+    font-family: 'Comic Neue', cursive;
 }
 body {
     height: 100%;
@@ -10,10 +11,36 @@ h1 {
     display: flex;
     justify-content: center;
 }
+fieldset {
+    display:flex;
+    flex-direction: column;
+    border: none;
+    align-items: center;
+}
+label {
+    font-size:18pt;
+}
+.page-title {
+    font-size: 45pt;
+}
+.saved-title {
+    font-size: 37pt;
+}
 .saved {
     border-left: solid 5px;
     height: 100%;
     width: 20%;
+}
+.button {
+    border: solid black 3px;
+    font-size: 50pt;
+    border-radius: 10px;
+    font-family: 'Comic Neue', cursive;
+}
+.button:hover {
+    background: rebeccapurple;
+    color: white;
+    cursor: grab;
 }
 .button-section {
     display: flex;
@@ -23,11 +50,12 @@ h1 {
     display:flex;
     flex-direction: column;
     align-content: center;
+    justify-content: space-evenly;
     width: 80%;
-    border: solid 2px black;
+    padding-bottom : 40%;
+    padding-top: 20%;
 }
 .current-palette {
-    border: solid 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,10 +64,11 @@ h1 {
 }
 
 .boxes {
-    width: 100px;
-    height: 100px;
-    border: solid black 2px;
+    height: 150px;
+    width: 150px;
+    border: solid black 6px;
     margin: 2%;
+    border-radius: 10px;
 }
 
 .color1 {
