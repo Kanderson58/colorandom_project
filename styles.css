@@ -90,22 +90,22 @@ label {
     object-fit: scale-down;
 }
 
-.color1 {
+.color0 {
     background-color: rgb(202, 125, 207);
 }
 
-.color2 {
+.color1 {
     background-color: rgb(128, 136, 162);
 }
 
-.color3 {
+.color2 {
     background-color: blue;
 }
 
-.color4 {
+.color3 {
     background-color: rgb(62, 149, 243);
 }
 
-.color5 {
+.color4 {
     background-color: rgb(159, 94, 179);
 }

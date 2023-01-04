@@ -23,6 +23,8 @@ class Palette{
         currentPalette.innerHTML = ''
         this.colors = [];
         var randomColor;
+        this.displayLockedColors()
+        console.log(this.lockedColors)
         for(var i = this.lockedColors.length; i < 5; i++){
             randomColor = new Color
             randomColor.randomIndex()
@@ -48,6 +50,19 @@ class Palette{
             } 
         } console.log(this.lockedColors)
     }
+
+    displayLockedColors(){
+        for(var i = 0; i < this.lockedColors.length; i++){
+            currentPalette.innerHTML +=
+            `
+            <fieldset class="${this.lockedColors[i].hexCode}">
+            <div class="boxes color${i}"></div>
+            <label>${this.lockedColors[i].hexCode}</label>
+            </fieldset>
+            `;
+         }
+    };
+
     // checkForDoubles(givenColorHex) {
     //     var doubles = [];
     //     for(var i = 0; i < this.lockedColors.length; i++) {
