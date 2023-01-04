@@ -3,87 +3,80 @@ class Color{
         this.hexCode = hex;
         this.locked = false;
     }
+    randomIndex(){
+        this.hexCode ='#'
+        for(var i = 0; i < 6; i++){
+            var possibleHexes = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+            this.hexCode += possibleHexes[Math.floor(Math.random()*possibleHexes.length)]
+        } return this.hexCode
+    };
 };
 
 class Palette{
     constructor(){
         this.id = Date.now();
         this.colors = [];
-
+        this.lockedColors = [];
     }
-    // lockColor(){
-    //     console.log('hello');
-    //     for(var i = 0; i < this.colors.length; i++){
-    //         if (event.target.class === this.colors[i].hexCode){
-    //             this.colors[i].locked = true;
-    //             console.log(this.colors[i].locked)
+    getRandomPalette(){
+        var currentPalette = document.querySelector(".current-palette")
+        currentPalette.innerHTML = ''
+        this.colors = [];
+        var randomColor;
+        for(var i = this.lockedColors.length; i < 5; i++){
+            randomColor = new Color
+            randomColor.randomIndex()
+            this.colors.push(randomColor)
+            currentPalette.innerHTML +=
+            `
+            <fieldset class="${randomColor.hexCode}">
+            <div class="boxes color${i}"></div>
+            <label>${randomColor.hexCode}</label>
+            </fieldset>
+            `;
+         }
+    };
+    lockThisColor(currentColorHex) {
+        for(var i = 0; i < this.colors.length; i++) {
+            if (currentColorHex === this.colors[i].hexCode && !this.colors[i].locked && this.lockedColors.length < 5) {
+                this.colors[i].locked = true;
+                this.lockedColors.push(this.colors[i])
+                // this.checkForDoubles(currentColorHex)
+            } else if (currentColorHex === this.colors[i].hexCode && this.lockedColors.length <= 5){
+                this.colors[i].locked = false;
+                this.lockedColors.splice(this.lockedColors.indexOf(this.colors[i]), 1);
+            } 
+        } console.log(this.lockedColors)
+    }
+    // checkForDoubles(givenColorHex) {
+    //     var doubles = [];
+    //     for(var i = 0; i < this.lockedColors.length; i++) {
+    //         if(givenColorHex === this.lockedColors[i].hexCode){
+    //             doubles.push(this.lockedColors[i].hexCode)
+    //         }
+    //         if(doubles.length >= 2) {
+    //             this.lockedColors.splice(i, 1)
     //         }
     //     }
-        
     // }
 };
-// How might we use our lockColor function within the palette class? 
 
-var array = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
-var lockedColors = []
-var currentPalette = document.querySelector(".current-palette")
-var randomPalette;
+var randomPalette = new Palette
 var newPaletteButton = document.querySelector(".new-button")
+var currentPalette = document.querySelector(".current-palette")
 
-window.addEventListener('load', getRandomPalette)
+window.addEventListener('load', function() {randomPalette.getRandomPalette()})
+newPaletteButton.addEventListener('click', getNewRandom)
 currentPalette.addEventListener('click', lockColor)
-newPaletteButton.addEventListener('click', getRandomPalette)
 
-function randomIndex(array){
-    return array[Math.floor(Math.random()*array.length)]
-};
-
-function getRandomHexCode(){
-    var hexCode = '#'
-    for(var i = 0; i < 6; i++){
-        hexCode += randomIndex(array)
+function getNewRandom() {
+    if(randomPalette.lockedColors.length < 5) {
+        randomPalette.getRandomPalette()
+    } else {
+        alert("Uh oh!  All the colors are locked!")
     }
-    return hexCode
-    
-};
-
-function getRandomPalette(){
-    currentPalette.innerHTML = '';
-    randomPalette = new Palette;
-    console.log(randomPalette);
-    for(var i = 1; i < 6; i++){
-       var thisHex = getRandomHexCode()
-       randomPalette.colors.push(new Color(thisHex))
-       currentPalette.innerHTML +=
-       `
-       <fieldset class="${thisHex}">
-       <div class="boxes color${i}">test text</div>
-       <label>${thisHex}</label>
-       </fieldset>
-       `;
-     }
-};
-
-
- // Great place to practice refactoring:
-function lockColor(event) {
-    console.log(event.target.parentNode.classList.value);
-    for(var i = 0; i < randomPalette.colors.length; i++) {
-        if (event.target.parentNode.classList.value === randomPalette.colors[i].hexCode && !randomPalette.colors[i].locked) {
-            randomPalette.colors[i].locked = true;
-            // pushColor(randomPalette.colors[i]);
-            lockedColors.push(randomPalette.colors[i])
-            console.log(randomPalette.colors[i].locked);
-        }
-        else if  (event.target.parentNode.classList.value === randomPalette.colors[i].hexCode){
-            randomPalette.colors[i].locked = false;
-            console.log(randomPalette.colors[i].locked);
-        }
-    }
-    console.log(lockedColors);
 }
-// function pushColor(colorInstance) {
-//         if (lockedColors.includes(colorInstance)) {
-//             lockedColors.push(colorInstance);
-//         }
-//         }
+
+function lockColor(event) {
+    randomPalette.lockThisColor(event.target.parentNode.classList.value);
+}
