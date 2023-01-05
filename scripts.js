@@ -24,7 +24,7 @@ class Palette{
         this.colors = [];
         var randomColor;
         this.displayLockedColors()
-        console.log(this.lockedColors)
+        // console.log(this.lockedColors)
         for(var i = this.lockedColors.length; i < 5; i++){
             randomColor = new Color
             randomColor.randomIndex()
@@ -36,6 +36,8 @@ class Palette{
             <label>${randomColor.hexCode}</label>
             </fieldset>
             `;
+            var colorBrick = document.querySelector(`.color${i}`)
+            colorBrick.style.backgroundColor = `${randomColor.hexCode}`
          }
     };
     lockThisColor(currentColorHex) {
@@ -48,7 +50,8 @@ class Palette{
                 this.colors[i].locked = false;
                 this.lockedColors.splice(this.lockedColors.indexOf(this.colors[i]), 1);
             } 
-        } console.log(this.lockedColors)
+        } 
+        console.log(this.lockedColors)
     }
 
     displayLockedColors(){
@@ -60,6 +63,8 @@ class Palette{
             <label>${this.lockedColors[i].hexCode}</label>
             </fieldset>
             `;
+            var colorBrick = document.querySelector(`.color${i}`)
+            colorBrick.style.backgroundColor = `${this.lockedColors[i].hexCode}`
          }
     };
 
