@@ -33,6 +33,7 @@ class Palette{
             `
             <fieldset class="${randomColor.hexCode}">
             <div class="boxes color${i}"></div>
+            <img src="./assets/unlock.png">
             <label>${randomColor.hexCode}</label>
             </fieldset>
             `;
@@ -45,13 +46,16 @@ class Palette{
             if (currentColorHex === this.colors[i].hexCode && !this.colors[i].locked && this.lockedColors.length < 5) {
                 this.colors[i].locked = true;
                 this.lockedColors.push(this.colors[i])
+                console.log(this.lockedColors)
+                // this.toggleLock()
+                // this.displayLockedColors()
                 // this.checkForDoubles(currentColorHex)
             } else if (currentColorHex === this.colors[i].hexCode && this.lockedColors.length <= 5){
                 this.colors[i].locked = false;
                 this.lockedColors.splice(this.lockedColors.indexOf(this.colors[i]), 1);
+                console.log(this.lockedColors)
             } 
         } 
-        console.log(this.lockedColors)
     }
 
     displayLockedColors(){
@@ -60,7 +64,10 @@ class Palette{
             `
             <fieldset class="${this.lockedColors[i].hexCode}">
             <div class="boxes color${i}"></div>
+            <img src="./assets/lock.png">
+            
             <label>${this.lockedColors[i].hexCode}</label>
+            
             </fieldset>
             `;
             var colorBrick = document.querySelector(`.color${i}`)
@@ -68,17 +75,28 @@ class Palette{
          }
     };
 
-    // checkForDoubles(givenColorHex) {
-    //     var doubles = [];
-    //     for(var i = 0; i < this.lockedColors.length; i++) {
-    //         if(givenColorHex === this.lockedColors[i].hexCode){
-    //             doubles.push(this.lockedColors[i].hexCode)
-    //         }
-    //         if(doubles.length >= 2) {
-    //             this.lockedColors.splice(i, 1)
-    //         }
+    // toggleLock(click){
+    //     // console.log(colorObject)
+    //     var lock = document.querySelector('img')
+    //     if(colorObject.locked){
+    //         lock.classList.remove('.hidden')
+    //     } else {
+    //         lock.classList.add('.hidden')
     //     }
-    // }
+    //     click.classList.remove('hidden')
+    // };
+
+//     checkForDoubles(givenColorHex) {
+//         var doubles = [];
+//         for(var i = 0; i < this.lockedColors.length; i++) {
+//             if(givenColorHex === this.lockedColors[i].hexCode){
+//                 doubles.push(this.lockedColors[i].hexCode)
+//             }
+//             if(doubles.length >= 2) {
+//                 this.lockedColors.splice(i, 1)
+//             }
+//         }
+//     }
 };
 
 var randomPalette = new Palette
@@ -99,4 +117,12 @@ function getNewRandom() {
 
 function lockColor(event) {
     randomPalette.lockThisColor(event.target.parentNode.classList.value);
+    // var lock = event.target.nextElementSibling
+    // randomPalette.toggleLock(lock)
+    // if(colorObject.locked){
+    //     lock.classList.remove('.hidden')
+    // } else {
+    //     lock.classList.add('.hidden')
+    // }
+    // console.log(event.target.nextElementSibling)
 }
