@@ -39,19 +39,6 @@ class Palette{
             } 
         } 
     }
-    // displayLockedColors(){
-    //     for(var i = 0; i < this.lockedColors.length; i++){
-    //         currentPalette.innerHTML +=
-    //         `
-    //         <fieldset class="${this.lockedColors[i].hexCode}">
-    //         <div class="boxes color${i}"></div>
-    //         <label>${this.lockedColors[i].hexCode}</label>
-    //         </fieldset>
-    //         `;
-    //         var colorBrick = document.querySelector(`.color${i}`)
-    //         colorBrick.style.backgroundColor = `${this.lockedColors[i].hexCode}`
-    //      }
-    // };
 };
 
 var currentPalette = new Palette
@@ -59,16 +46,8 @@ var newPaletteButton = document.querySelector(".new-button")
 var currentPaletteSection = document.querySelector(".current-palette")
 
 window.addEventListener('load', displayCurrent)
-// newPaletteButton.addEventListener('click', getNewRandom)
+newPaletteButton.addEventListener('click', displayCurrent)
 currentPaletteSection.addEventListener('click', lockColor)
-
-function getNewRandom() {
-    if(currentPalette.lockedColors.length < 5) {
-        currentPalette.getRandomPalette()
-    } else {
-        alert("Uh oh!  All the colors are locked!")
-    }
-}
 
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
