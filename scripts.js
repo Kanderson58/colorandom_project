@@ -20,6 +20,12 @@ class Palette{
     }
     getRandomPalette(){
         this.colors = [];
+        if(this.lockedColors.length !== 0) {
+            for(var i = 0; i < this.lockedColors.length; i++) {
+                this.colors.push(this.lockedColors[i]);
+                console.log(this.colors)
+            }
+        }
         for(var i = this.lockedColors.length; i < 5; i++){
             var randomColor = new Color
             randomColor.randomIndex()
@@ -31,11 +37,11 @@ class Palette{
             if (currentColorHex === this.colors[i].hexCode && !this.colors[i].locked && this.lockedColors.length < 5) {
                 this.colors[i].locked = true;
                 this.lockedColors.push(this.colors[i])
-                console.log(this.lockedColors)
+                // this.combineArrays()
+                // console.log(this.lockedColors)
             } else if (currentColorHex === this.colors[i].hexCode && this.lockedColors.length <= 5){
                 this.colors[i].locked = false;
                 this.lockedColors.splice(this.lockedColors.indexOf(this.colors[i]), 1);
-                console.log(this.lockedColors)
             } 
         } 
     }
