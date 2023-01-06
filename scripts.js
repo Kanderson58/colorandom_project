@@ -37,7 +37,8 @@ class Palette{
             if (currentColorHex === this.colors[i].hexCode && !this.colors[i].locked && this.lockedColors.length < 5) {
                 this.colors[i].locked = true;
                 this.lockedColors.push(this.colors[i])
-                console.log(this.lockedColors)
+                // this.combineArrays()
+                // console.log(this.lockedColors)
             } else if (currentColorHex === this.colors[i].hexCode && this.lockedColors.length <= 5){
                 this.colors[i].locked = false;
                 this.lockedColors.splice(this.lockedColors.indexOf(this.colors[i]), 1);
@@ -49,23 +50,14 @@ class Palette{
 var currentPalette = new Palette
 var newPaletteButton = document.querySelector(".new-button")
 var currentPaletteSection = document.querySelector(".current-palette")
-var savedSection = document.querySelector(".saved-palettes")
-var savedButton = document.querySelector(".save-button")
 
 window.addEventListener('load', displayCurrent)
 newPaletteButton.addEventListener('click', displayCurrent)
 currentPaletteSection.addEventListener('click', lockColor)
-savedButton.addEventListener('click', displaySavedPalette)
 
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
-};
-
-function toggleLockIcon(){
-    if(colors.locked === false){
-
-    }
-};
+}
 
 function displayCurrent() {
     currentPalette.getRandomPalette()
@@ -81,19 +73,4 @@ function displayCurrent() {
         var colorBrick = document.querySelector(`.color${i}`)
         colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
     }
-};
-
-function displaySavedPalette() {
-    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}></div>`
-    var lilBoxContainer = savedSection.lastChild
-    for(var i = 0; i < 5; i++){
-        lilBoxContainer.innerHTML +=
-        `
-        <fieldset class="to-go-box ${currentPalette.colors[i].hexCode}">
-        <div class="saved-boxes${i} little-brick" style="background-color:${currentPalette.colors[i].hexCode}">
-        </div>
-        </fieldset>
-        `;
-        }
-        lilBoxContainer.innerHTML += '<button class="trash">🗑️</button>'
-};
+}
