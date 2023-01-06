@@ -62,10 +62,8 @@ function lockColor(event) {
 };
 
 function toggleLockIcon(){
-    // event target pic
-    // true.false conditional
     if(colors.locked === false){
-        
+
     }
 };
 
@@ -86,7 +84,7 @@ function displayCurrent() {
 };
 
 function displaySavedPalette() {
-    savedSection.innerHTML += '<div class="lil-box-container"></div>'
+    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}></div>`
     var lilBoxContainer = savedSection.lastChild
     for(var i = 0; i < 5; i++){
         lilBoxContainer.innerHTML +=
