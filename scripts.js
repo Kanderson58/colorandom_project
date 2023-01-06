@@ -51,6 +51,7 @@ var newPaletteButton = document.querySelector(".new-button")
 var currentPaletteSection = document.querySelector(".current-palette")
 var savedSection = document.querySelector(".saved-palettes")
 var savedButton = document.querySelector(".save-button")
+var lockEmojiToggle = document.querySelectorAll(".toggle-lock")
 
 window.addEventListener('load', displayCurrent)
 newPaletteButton.addEventListener('click', displayCurrent)
@@ -59,9 +60,12 @@ savedButton.addEventListener('click', displaySavedPalette)
 
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
+    console.log(event.target)
+    toggleLockIcon()
 };
 
 function toggleLockIcon(){
+    console.log(currentPalette.colors[0].locked)
     if(colors.locked === false){
 
     }
@@ -71,20 +75,35 @@ function displayCurrent() {
     currentPalette.getRandomPalette()
     currentPaletteSection.innerHTML = ''
     for(var i = 0; i < 5; i++){
+        // if(currentPalette.colors[i].locked){
+
+        
         currentPaletteSection.innerHTML +=
         `
         <fieldset class="${currentPalette.colors[i].hexCode}">
         <div class="boxes color${i}"></div>
-        <label>${currentPalette.colors[i].hexCode}</label>
+        <label><span class="toggle-lock"></span>${currentPalette.colors[i].hexCode}</label>
         </fieldset>
         `;
         var colorBrick = document.querySelector(`.color${i}`)
         colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
+        // } else {
+        //     currentPaletteSection.innerHTML +=
+        // `
+        // <fieldset class="${currentPalette.colors[i].hexCode}">
+        // <div class="boxes color${i}"></div>
+        // <label><img src="./unlock.png">${currentPalette.colors[i].hexCode}</label>
+        // </fieldset>
+        // `;
+        // var colorBrick = document.querySelector(`.color${i}`)
+        // colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
+        // }
     }
 };
+// Instead of if else HTML just If Else IMG
 
 function displaySavedPalette() {
-    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}></div>`
+    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"></div>`
     var lilBoxContainer = savedSection.lastChild
     for(var i = 0; i < 5; i++){
         lilBoxContainer.innerHTML +=
