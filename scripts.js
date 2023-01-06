@@ -50,7 +50,7 @@ class Palette{
 var currentPalette = new Palette
 var newPaletteButton = document.querySelector(".new-button")
 var currentPaletteSection = document.querySelector(".current-palette")
-var savedSection = document.querySelector(".saved")
+var savedSection = document.querySelector(".saved-palettes")
 var savedButton = document.querySelector(".save-button")
 
 window.addEventListener('load', displayCurrent)
@@ -82,12 +82,12 @@ function displaySavedPalette() {
     for(var i = 0; i < 5; i++){
         savedSection.innerHTML +=
         `
-        <fieldset class="${currentPalette.colors[i].hexCode}">
+        <fieldset class="to-go-box ${currentPalette.colors[i].hexCode}">
         <div class="saved-boxes${i} little-brick"></div>
-        <label>${currentPalette.colors[i].hexCode}</label>
         </fieldset>
         `;
         var littleColorBrick = document.querySelector(`.saved-boxes${i}`)
         littleColorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
         }
+        savedSection.innerHTML += '<button class="trash">🗑️</button>'
 }
