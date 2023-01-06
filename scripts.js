@@ -83,7 +83,8 @@ function displaySavedPalette() {
         savedSection.innerHTML +=
         `
         <fieldset class="to-go-box ${currentPalette.colors[i].hexCode}">
-        <div class="saved-boxes${i} little-brick"></div>
+        <div class="saved-boxes${i} little-brick">
+        </div>
         </fieldset>
         `;
         var littleColorBrick = document.querySelector(`.saved-boxes${i}`)

@@ -31,13 +31,6 @@ h1 {
     justify-content: center;
 }
 
-fieldset {
-    display: flex;
-    flex-direction: column;
-    border: none;
-    align-items: center;
-}
-
 label {
     font-size: 18pt;
 }
@@ -88,11 +81,18 @@ img{
     max-height: 20px;
 }
 
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    align-items: center;
+}
+
 .saved {
     display: flex;
     /* flex-wrap: wrap; */
     flex-direction: column; 
-    justify-content: center;
+    /* justify-content: center; */
     font-size: 20pt;
     border-left: solid 5px;
     height: 100%;
@@ -100,6 +100,7 @@ img{
 }
 
 .little-brick {
+    display: inline;
     width: 30px;
     height: 30px;
     border: solid black 3px;
@@ -107,14 +108,13 @@ img{
 }
 
 .saved-palettes {
-    display: flex;
-    flex-direction: column;
-    
+    display: block;
+    /* white-space: pre-line; */
 }
 
 .to-go-box {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: row;
     margin: 0;
     padding: 0;
 }
@@ -127,4 +127,12 @@ img{
     width: 30px;
     border: none;
     background-color: none;
+}
+
+.little-brick-row {
+    display: block;
+}
+
+.bs-test{
+    display: block;
 }
