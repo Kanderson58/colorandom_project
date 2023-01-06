@@ -108,8 +108,8 @@ fieldset {
 }
 
 .saved-palettes {
-    display: block;
-    /* white-space: pre-line; */
+    display: flex;
+    flex-direction: column;
 }
 
 .to-go-box {
@@ -133,6 +133,11 @@ fieldset {
     display: block;
 }
 
-.bs-test{
-    display: block;
+/* *{
+    border: 1px solid red;
+} */
+
+.lil-box-container{
+    display: flex;
+    justify-content: space-evenly;
 }

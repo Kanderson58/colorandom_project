@@ -37,8 +37,7 @@ class Palette{
             if (currentColorHex === this.colors[i].hexCode && !this.colors[i].locked && this.lockedColors.length < 5) {
                 this.colors[i].locked = true;
                 this.lockedColors.push(this.colors[i])
-                // this.combineArrays()
-                // console.log(this.lockedColors)
+                console.log(this.lockedColors)
             } else if (currentColorHex === this.colors[i].hexCode && this.lockedColors.length <= 5){
                 this.colors[i].locked = false;
                 this.lockedColors.splice(this.lockedColors.indexOf(this.colors[i]), 1);
@@ -60,7 +59,15 @@ savedButton.addEventListener('click', displaySavedPalette)
 
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
-}
+};
+
+function toggleLockIcon(){
+    // event target pic
+    // true.false conditional
+    if(colors.locked === false){
+        
+    }
+};
 
 function displayCurrent() {
     currentPalette.getRandomPalette()
@@ -76,19 +83,19 @@ function displayCurrent() {
         var colorBrick = document.querySelector(`.color${i}`)
         colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
     }
-}
+};
 
 function displaySavedPalette() {
+    savedSection.innerHTML += '<div class="lil-box-container"></div>'
+    var lilBoxContainer = savedSection.lastChild
     for(var i = 0; i < 5; i++){
-        savedSection.innerHTML +=
+        lilBoxContainer.innerHTML +=
         `
         <fieldset class="to-go-box ${currentPalette.colors[i].hexCode}">
-        <div class="saved-boxes${i} little-brick">
+        <div class="saved-boxes${i} little-brick" style="background-color:${currentPalette.colors[i].hexCode}">
         </div>
         </fieldset>
         `;
-        var littleColorBrick = document.querySelector(`.saved-boxes${i}`)
-        littleColorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
         }
-        savedSection.innerHTML += '<button class="trash">🗑️</button>'
-}
+        lilBoxContainer.innerHTML += '<button class="trash">🗑️</button>'
+};
