@@ -50,10 +50,13 @@ class Palette{
 var currentPalette = new Palette
 var newPaletteButton = document.querySelector(".new-button")
 var currentPaletteSection = document.querySelector(".current-palette")
+var savedSection = document.querySelector(".saved")
+var savedButton = document.querySelector(".save-button")
 
 window.addEventListener('load', displayCurrent)
 newPaletteButton.addEventListener('click', displayCurrent)
 currentPaletteSection.addEventListener('click', lockColor)
+savedButton.addEventListener('click', displaySavedPalette)
 
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
@@ -73,4 +76,18 @@ function displayCurrent() {
         var colorBrick = document.querySelector(`.color${i}`)
         colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
     }
+}
+
+function displaySavedPalette() {
+    for(var i = 0; i < 5; i++){
+        savedSection.innerHTML +=
+        `
+        <fieldset class="${currentPalette.colors[i].hexCode}">
+        <div class="saved-boxes${i} little-brick"></div>
+        <label>${currentPalette.colors[i].hexCode}</label>
+        </fieldset>
+        `;
+        var littleColorBrick = document.querySelector(`.saved-boxes${i}`)
+        littleColorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
+        }
 }
