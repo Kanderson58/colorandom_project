@@ -43,23 +43,29 @@ label {
     align-items: center;
     justify-content: space-evenly;
     padding: 2%;
+    
 }
 
 .button {
-    font-size: 40pt;
-    border-radius: 10px;
-    font-family: 'Comic Neue', cursive;
-    background: transparent;
-    border: 6px solid #000000;
-    outline: none;
-    transition: 1s ease-in-out;
-    box-shadow: 5px 5px;
+    align-self:center;
+    background:transparent;
+    padding:1rem 1rem;
+    margin:0 1rem;
+    transition:all .5s ease;
+    color:#41403E;
+    font-size:2rem;
+    letter-spacing:1px;
+    outline:none;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 6px black;
 }
 
 .button:hover {
     transition: 1s ease-in-out;
     background: rebeccapurple;
     cursor: pointer;
+    color:white;
 }
 
 .button-section {
@@ -74,7 +80,11 @@ label {
     margin: 2%;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 6px black;
 }
+
 img{
     max-height: 20px;
 }
@@ -96,13 +106,15 @@ fieldset {
 .little-brick {
     width: 30px;
     height: 30px;
-    border: solid black 3px;
-    border-radius: 5px;
     margin-bottom: 15px;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 4px black;
 }
 
 .to-go-box {
     padding: 0%;
+    
 }
 
 .trash {
