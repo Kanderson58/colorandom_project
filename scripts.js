@@ -53,8 +53,8 @@ class Palette{
 };
 
 var currentPalette = new Palette;
-var savedPalettes = [];
-var clickCounter = 0;
+// var savedPalettes = [];
+// var clickCounter = 0;
 var newPaletteButton = document.querySelector(".new-button");
 var currentPaletteSection = document.querySelector(".current-palette");
 var savedSection = document.querySelector(".saved-palettes");
@@ -117,7 +117,7 @@ function displayCurrent() {
 };
 
 function displaySavedPalette() {
-    if(savedPalettes.includes(currentPalette.id)) {
+    if(currentPalette.savedColors.includes(currentPalette.id)) {
         return;
     }
     savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"</div>`;
@@ -134,11 +134,12 @@ function displaySavedPalette() {
         lilBoxContainer.innerHTML += '<button class="trash" onclick="deletePalette(event)">🗑️</button>';
         // var trashButton = document.querySelector(".trash");
         // createEventFunc(trashButton);
-        savedPalettes.push(currentPalette.id);
+        currentPalette.savedColors.push(currentPalette.id);
 };
 
 function deletePalette(event) {
     console.log(event.target);
+    console.log(currentPalette.savedColors);
 }
 
 // function createEventFunc(trashButton) {
