@@ -131,5 +131,11 @@ function displaySavedPalette() {
         `;
         }
         lilBoxContainer.innerHTML += '<button class="trash">🗑️</button>';
+        var trashButton = document.querySelector(".trash");
+        trashButton.addEventListener('click', deletePalette);
         savedPalettes.push(currentPalette.id);
 };
+
+function deletePalette(event) {
+    console.log(event.target);
+}
