@@ -139,11 +139,14 @@ function displaySavedPalette() {
 
 function deletePalette(event) {
     // console.log(event.target);
-    if (currentPalette.savedColors.includes(parseInt(event.target.parentNode.id))){
-        currentPalette.savedColors.splice(currentPalette.savedColors.indexOf(parseInt(event.target.parentNode.id)),1)
-
+    var idNum = parseInt(event.target.parentNode.id);
+    var idString = document.getElementById(`${event.target.parentNode.id}`)
+    if (currentPalette.savedColors.includes(idNum)){
+        currentPalette.savedColors.splice(currentPalette.savedColors.indexOf(idNum),1);
+        idString.remove()
         console.log(currentPalette.savedColors)
     }
+    
     // console.log(typeof event.target.parentNode.id)
     // console.log(typeof currentPalette.savedColors[0])
     // console.log(currentPalette.savedColors);
