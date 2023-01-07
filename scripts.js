@@ -51,7 +51,7 @@ var newPaletteButton = document.querySelector(".new-button")
 var currentPaletteSection = document.querySelector(".current-palette")
 var savedSection = document.querySelector(".saved-palettes")
 var savedButton = document.querySelector(".save-button")
-var lockEmojiToggle = document.querySelectorAll(".toggle-lock")
+
 
 window.addEventListener('load', displayCurrent)
 newPaletteButton.addEventListener('click', displayCurrent)
@@ -60,15 +60,25 @@ savedButton.addEventListener('click', displaySavedPalette)
 
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
-    console.log(event.target)
-    toggleLockIcon()
+    // toggleLockIcon(event)
+    console.log(event.target["nextSibling"])
 };
 
-function toggleLockIcon(){
-    console.log(currentPalette.colors[0].locked)
-    if(colors.locked === false){
+function toggleLockIcon(event){
+    
+    // for(i = 0; i < currentPalette.colors.length; i++){
+    //     var lockEmojiToggle = document.querySelectorAll(".toggle-lock")
+    //     if (currentPalette.colors[i].locked){
+    //         lockEmojiToggle.innerHTML = '<img src= "./lock.png"/>'
+    //         console.log(currentPalette.colors[i].locked)
+    //     } else {
+    //         lockEmojiToggle.innerHTML = '<img src= "./unlock.png"/>'
+    //         console.log(currentPalette.colors[i].locked)
+    //     }
+    // }
+    // if(colors.locked === false){
 
-    }
+    // }
 };
 
 function displayCurrent() {
@@ -82,7 +92,7 @@ function displayCurrent() {
         `
         <fieldset class="${currentPalette.colors[i].hexCode}">
         <div class="boxes color${i}"></div>
-        <label><span class="toggle-lock"></span>${currentPalette.colors[i].hexCode}</label>
+        <label><img src= "./unlock.png"/>${currentPalette.colors[i].hexCode}</label>
         </fieldset>
         `;
         var colorBrick = document.querySelector(`.color${i}`)
@@ -99,6 +109,7 @@ function displayCurrent() {
         // colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`
         // }
     }
+    toggleLockIcon()
 };
 // Instead of if else HTML just If Else IMG
 
