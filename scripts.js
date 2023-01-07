@@ -138,13 +138,15 @@ function displaySavedPalette() {
 };
 
 function deletePalette(event) {
-    console.log(event.target);
-    console.log(currentPalette.savedColors);
+    // console.log(event.target);
+    if (currentPalette.savedColors.includes(parseInt(event.target.parentNode.id))){
+        currentPalette.savedColors.splice(currentPalette.savedColors.indexOf(parseInt(event.target.parentNode.id)),1)
+
+        console.log(currentPalette.savedColors)
+    }
+    // console.log(typeof event.target.parentNode.id)
+    // console.log(typeof currentPalette.savedColors[0])
+    // console.log(currentPalette.savedColors);
+    // console.log(event.target.parentNode.id)
 }
 
-// function createEventFunc(trashButton) {
-//     trashButton = document.querySelector(".trash");
-//     if (trashButton) {
-//         trashButton.addEventListener('click', deletePalette);
-//     }
-// }
