@@ -54,14 +54,15 @@ class Palette{
 
 var currentPalette = new Palette;
 var savedPalettes = [];
+var clickCounter = 0;
 var newPaletteButton = document.querySelector(".new-button");
 var currentPaletteSection = document.querySelector(".current-palette");
 var savedSection = document.querySelector(".saved-palettes");
 var savedButton = document.querySelector(".save-button");
 
 
-window.addEventListener('load', displayCurrent);
-newPaletteButton.addEventListener('click', displayCurrent);
+window.addEventListener('load', getRandom);
+newPaletteButton.addEventListener('click', getRandom);
 currentPaletteSection.addEventListener('click', lockColor);
 savedButton.addEventListener('click', displaySavedPalette);
 
@@ -71,27 +72,44 @@ function lockColor(event) {
 };
 
 function toggleToLock(event){
+
     for(var i = 0; i < currentPalette.colors.length; i++) {
         if(currentPalette.colors[i].locked === true) {
-            event.target.parentNode.children[1].children[0].src = "./lock.png";
-        } 
-        // else {
-        //     event.target.parentNode.children[1].children[0].src = "./unlock.png";
-        // }
+        event.target.parentNode.children[1].children[0].nextSibling.classList.add("hidden")
+        event.target.parentNode.children[1].children[0].classList.remove("hidden")
+        } else {
+            event.target.parentNode.children[1].children[0].nextSibling.classList.remove("hidden")
+            event.target.parentNode.children[1].children[0].classList.add("hidden")
+            displayCurrent();
+        }
     }
 };
 
-function displayCurrent() {
+function getRandom() {
     currentPalette.getRandomPalette();
+    displayCurrent();
+}
+
+function displayCurrent() {
     currentPaletteSection.innerHTML = ''
     for(var i = 0; i < 5; i++){
-        currentPaletteSection.innerHTML +=
-        `
-        <fieldset class="${currentPalette.colors[i].hexCode}">
-        <div class="boxes color${i}"></div>
-        <label><img src= "./unlock.png"/>${currentPalette.colors[i].hexCode}</label>
-        </fieldset>
-        `;
+        if(!currentPalette.colors[i].locked){
+            currentPaletteSection.innerHTML +=
+            `
+            <fieldset class="${currentPalette.colors[i].hexCode}">
+            <div class="boxes color${i}"></div>
+            <label><img src="./lock.png" class="hidden"><img src= "./unlock.png">${currentPalette.colors[i].hexCode}</label>
+            </fieldset>
+            `;
+        } else {
+            currentPaletteSection.innerHTML +=
+            `
+            <fieldset class="${currentPalette.colors[i].hexCode}">
+            <div class="boxes color${i}"></div>
+            <label><img src="./lock.png"><img src="./unlock.png" class="hidden">${currentPalette.colors[i].hexCode}</label>
+            </fieldset>
+            `;
+        }
         var colorBrick = document.querySelector(`.color${i}`);
         colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`;
     }
@@ -99,7 +117,7 @@ function displayCurrent() {
 
 function displaySavedPalette() {
     if(savedPalettes.includes(currentPalette.id)) {
-        return
+        return;
     }
     savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"></div>`;
     var lilBoxContainer = savedSection.lastChild
