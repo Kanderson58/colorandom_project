@@ -66,6 +66,7 @@ newPaletteButton.addEventListener('click', getRandom);
 currentPaletteSection.addEventListener('click', lockColor);
 savedButton.addEventListener('click', displaySavedPalette);
 
+
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
     toggleToLock(event);
@@ -119,7 +120,7 @@ function displaySavedPalette() {
     if(savedPalettes.includes(currentPalette.id)) {
         return;
     }
-    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"></div>`;
+    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"</div>`;
     var lilBoxContainer = savedSection.lastChild
     for(var i = 0; i < 5; i++){
         lilBoxContainer.innerHTML +=
@@ -130,12 +131,19 @@ function displaySavedPalette() {
         </fieldset>
         `;
         }
-        lilBoxContainer.innerHTML += '<button class="trash">🗑️</button>';
-        var trashButton = document.querySelector(".trash");
-        trashButton.addEventListener('click', deletePalette);
+        lilBoxContainer.innerHTML += '<button class="trash" onclick="deletePalette(event)">🗑️</button>';
+        // var trashButton = document.querySelector(".trash");
+        // createEventFunc(trashButton);
         savedPalettes.push(currentPalette.id);
 };
 
 function deletePalette(event) {
     console.log(event.target);
 }
+
+// function createEventFunc(trashButton) {
+//     trashButton = document.querySelector(".trash");
+//     if (trashButton) {
+//         trashButton.addEventListener('click', deletePalette);
+//     }
+// }
