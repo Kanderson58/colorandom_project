@@ -53,8 +53,8 @@ class Palette{
 };
 
 var currentPalette = new Palette;
-var savedPalettes = [];
-var clickCounter = 0;
+// var savedPalettes = [];
+// var clickCounter = 0;
 var newPaletteButton = document.querySelector(".new-button");
 var currentPaletteSection = document.querySelector(".current-palette");
 var savedSection = document.querySelector(".saved-palettes");
@@ -65,6 +65,7 @@ window.addEventListener('load', getRandom);
 newPaletteButton.addEventListener('click', getRandom);
 currentPaletteSection.addEventListener('click', lockColor);
 savedButton.addEventListener('click', displaySavedPalette);
+
 
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
@@ -116,10 +117,10 @@ function displayCurrent() {
 };
 
 function displaySavedPalette() {
-    if(savedPalettes.includes(currentPalette.id)) {
+    if(currentPalette.savedColors.includes(currentPalette.id)) {
         return;
     }
-    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"></div>`;
+    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"</div>`;
     var lilBoxContainer = savedSection.lastChild
     for(var i = 0; i < 5; i++){
         lilBoxContainer.innerHTML +=
@@ -130,6 +131,25 @@ function displaySavedPalette() {
         </fieldset>
         `;
         }
-        lilBoxContainer.innerHTML += '<button class="trash">🗑️</button>';
-        savedPalettes.push(currentPalette.id);
+        lilBoxContainer.innerHTML += '<button class="trash" onclick="deletePalette(event)">🗑️</button>';
+        // var trashButton = document.querySelector(".trash");
+        // createEventFunc(trashButton);
+        currentPalette.savedColors.push(currentPalette.id);
 };
+
+function deletePalette(event) {
+    // console.log(event.target);
+    var idNum = parseInt(event.target.parentNode.id);
+    var idString = document.getElementById(`${event.target.parentNode.id}`)
+    if (currentPalette.savedColors.includes(idNum)){
+        currentPalette.savedColors.splice(currentPalette.savedColors.indexOf(idNum),1);
+        idString.remove()
+        console.log(currentPalette.savedColors)
+    }
+    
+    // console.log(typeof event.target.parentNode.id)
+    // console.log(typeof currentPalette.savedColors[0])
+    // console.log(currentPalette.savedColors);
+    // console.log(event.target.parentNode.id)
+}
+
