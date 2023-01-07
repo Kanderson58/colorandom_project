@@ -61,7 +61,8 @@ savedButton.addEventListener('click', displaySavedPalette)
 function lockColor(event) {
     currentPalette.lockThisColor(event.target.parentNode.classList.value);
     // toggleLockIcon(event)
-    console.log(event.target["nextSibling"])
+    event.target.parentNode.children[1].children[0].src="./lock.png"
+    console.log(event.target.parentNode.previousSibling.nextSibling.children[1].children[0].src)
 };
 
 function toggleLockIcon(event){
