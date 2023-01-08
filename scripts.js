@@ -53,8 +53,6 @@ class Palette{
 };
 
 var currentPalette = new Palette;
-// var savedPalettes = [];
-// var clickCounter = 0;
 var newPaletteButton = document.querySelector(".new-button");
 var currentPaletteSection = document.querySelector(".current-palette");
 var savedSection = document.querySelector(".saved-palettes");
@@ -132,13 +130,10 @@ function displaySavedPalette() {
         `;
         }
         lilBoxContainer.innerHTML += '<button class="trash" onclick="deletePalette(event)">🗑️</button>';
-        // var trashButton = document.querySelector(".trash");
-        // createEventFunc(trashButton);
         currentPalette.savedColors.push(currentPalette.id);
 };
 
 function deletePalette(event) {
-    // console.log(event.target);
     var idNum = parseInt(event.target.parentNode.id);
     var idString = document.getElementById(`${event.target.parentNode.id}`)
     if (currentPalette.savedColors.includes(idNum)){
@@ -146,10 +141,5 @@ function deletePalette(event) {
         idString.remove()
         console.log(currentPalette.savedColors)
     }
-    
-    // console.log(typeof event.target.parentNode.id)
-    // console.log(typeof currentPalette.savedColors[0])
-    // console.log(currentPalette.savedColors);
-    // console.log(event.target.parentNode.id)
-}
+};
 
