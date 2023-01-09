@@ -19,9 +19,9 @@ Step 4: Open index.html file in browser\
 Step 5: Click buttons - click 'new palette' button for inspiration!
 
 ## Contributors ##
-[Isaiah Richardson](https://github.com/CapCinematic)
-[Kara Anderson](https://github.com/Kanderson58)
-[Shane Misra](https://github.com/sdmisra)
+[Isaiah Richardson](https://github.com/CapCinematic)\
+[Kara Anderson](https://github.com/Kanderson58)\
+[Shane Misra](https://github.com/sdmisra)\
 [Bri Bourassa](https://github.com/BriBourassa)
 
 ## Context:
