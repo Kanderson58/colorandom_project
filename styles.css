@@ -45,21 +45,41 @@ label {
     padding: 2%;
 }
 
-.button {
-    font-size: 40pt;
-    border-radius: 10px;
-    font-family: 'Comic Neue', cursive;
-    background: transparent;
-    border: 6px solid #000000;
-    outline: none;
-    transition: 1s ease-in-out;
-    box-shadow: 5px 5px;
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
 
-.button:hover {
+.button, .confirm, .go-back {
+    font-family: 'Comic Neue', cursive;
+    align-self: center;
+    background: transparent;
+    padding: 1rem 1rem;
+    margin: 0 1rem;
+    transition: all .5s ease;
+    color:#000000;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    outline: none;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border: solid 6px black;
+}
+
+.confirm, .go-back {
+    font-size: small;
+    margin: 3%;
+}
+
+button:hover {
     transition: 1s ease-in-out;
     background: rebeccapurple;
     cursor: pointer;
+    color:white;
 }
 
 .button-section {
@@ -74,7 +94,11 @@ label {
     margin: 2%;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 6px black;
 }
+
 img{
     max-height: 20px;
 }
@@ -96,9 +120,11 @@ fieldset {
 .little-brick {
     width: 30px;
     height: 30px;
-    border: solid black 3px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 4px black;
 }
 
 .to-go-box {
@@ -106,6 +132,7 @@ fieldset {
 }
 
 .trash {
+    margin-top: 4%;
     font-size: 30px;
     height: 30px;
     width: 30px;
