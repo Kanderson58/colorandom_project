@@ -71,7 +71,6 @@ function lockColor(event) {
 };
 
 function toggleToLock(event){
-
     for(var i = 0; i < currentPalette.colors.length; i++) {
         if(currentPalette.colors[i].locked === true) {
         event.target.parentNode.children[1].children[0].nextSibling.classList.add("hidden")
@@ -97,7 +96,7 @@ function displayCurrent() {
             `
             <fieldset class="${currentPalette.colors[i].hexCode}">
             <div class="boxes color${i}"></div>
-            <label><img src="./lock.png" class="hidden"><img src= "./unlock.png">${currentPalette.colors[i].hexCode}</label>
+            <label><img src="./lock.png" class="hidden" alt="locked lock"><img src= "./unlock.png" alt="unlocked lock">${currentPalette.colors[i].hexCode}</label>
             </fieldset>
             `;
         } else {
@@ -105,7 +104,7 @@ function displayCurrent() {
             `
             <fieldset class="${currentPalette.colors[i].hexCode}">
             <div class="boxes color${i}"></div>
-            <label><img src="./lock.png"><img src="./unlock.png" class="hidden">${currentPalette.colors[i].hexCode}</label>
+            <label><img src="./lock.png" alt="locked lock"><img src="./unlock.png" class="hidden" alt="unlocked lock">${currentPalette.colors[i].hexCode}</label>
             </fieldset>
             `;
         }
@@ -118,7 +117,7 @@ function displaySavedPalette() {
     if(currentPalette.savedColors.includes(currentPalette.id)) {
         return;
     }
-    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"</div>`;
+    savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"></div>`;
     var lilBoxContainer = savedSection.lastChild
     for(var i = 0; i < 5; i++){
         lilBoxContainer.innerHTML +=
@@ -129,17 +128,32 @@ function displaySavedPalette() {
         </fieldset>
         `;
         }
-        lilBoxContainer.innerHTML += '<button class="trash" onclick="deletePalette(event)">🗑️</button>';
+        lilBoxContainer.innerHTML += '<button class="trash" onclick="doubleCheck(event)">🗑️</button>';
         currentPalette.savedColors.push(currentPalette.id);
 };
 
-function deletePalette(event) {
-    var idNum = parseInt(event.target.parentNode.id);
-    var idString = document.getElementById(`${event.target.parentNode.id}`)
-    if (currentPalette.savedColors.includes(idNum)){
-        currentPalette.savedColors.splice(currentPalette.savedColors.indexOf(idNum),1);
-        idString.remove()
-        console.log(currentPalette.savedColors)
+function doubleCheck(event) {
+    var currentPaletteInfo = event.target.parentNode.innerHTML;
+    var currentPaletteTarget = event.target.parentNode;
+    if(event.target.innerText === "🗑️") {
+        event.target.parentNode.innerHTML = '<button class="confirm">Delete palette</button><button class="go-back">Actually, keep it!</button>';
+        var goBack = document.querySelector(".go-back");
+        goBack.addEventListener('click', function() {putPaletteBack(currentPaletteInfo, currentPaletteTarget)});
+        var confirm = document.querySelector(".confirm");
+        confirm.addEventListener('click', deletePalette);
     }
-};
+}
 
+function putPaletteBack(currentPaletteInfo, currentPaletteTarget) {
+    var newNode = document.createElement("div");
+    newNode.classList.add("lil-box-container");
+    newNode.id = currentPaletteTarget.id;
+    newNode.innerHTML = currentPaletteInfo;
+    currentPaletteTarget.innerHTML = '';
+    currentPaletteTarget.insertAdjacentElement('afterend', newNode);
+    currentPaletteTarget.remove();
+}
+
+function deletePalette(event) {
+    event.target.parentNode.remove();
+};
