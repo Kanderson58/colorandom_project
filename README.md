@@ -18,6 +18,11 @@ Step 3: In terminal - change directory(cd) into newly cloned directory, can also
 Step 4: Open index.html file in browser\
 Step 5: Click buttons - click 'new palette' button for inspiration!
 
+## Preview of App:
+
+<img width="1427" alt="Screen Shot 2023-01-09 at 2 04 07 PM" src="https://user-images.githubusercontent.com/111149043/211421134-e4629a09-48b5-4dde-9e7a-ea8b3eb6cd6b.png">
+
+
 ## Contributors ##
 [Isaiah Richardson](https://github.com/CapCinematic)\
 [Kara Anderson](https://github.com/Kanderson58)\
@@ -34,3 +39,9 @@ Kara:
 2. Separate the Data Model and DOM and be careful how they are being used
 3. Use classes in a practical way
 4. Break functions down into smaller, more readable bits
+
+Bri:
+1. Practice coordinating branches, git workflow and PRs with multiple teammates 
+2. Get out of my comfort zone and challenging myself by learning different approaches and tactics from my teammates
+3. Improve my skills with CSS and styling
+4. Practice using the Data Model vs DOM where applicable
