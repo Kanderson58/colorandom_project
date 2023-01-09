@@ -13,8 +13,8 @@ In today's world of fast moving design trends, it may be critical to have the ab
 Repository Available Here: 
 https://github.com/Kanderson58/colorandom_project
 
-Step 1: Fork repository
-Step 2: Clone repository onto local machine
-Step 3: In terminal - change directory(cd) into newly cloned directory, can also use Finder to search for index.html
-Step 4: Open index.html file in browser
-Step 5: Click buttons - click 'new palette' button for inspiration!
+Step 1: Fork repository\
+Step 2: Clone repository onto local machine\
+Step 3: In terminal - change directory(cd) into newly cloned directory, can also use Finder to search for index.html\
+Step 4: Open index.html file in browser\
+Step 5: Click buttons - click 'new palette' button for inspiration!\
