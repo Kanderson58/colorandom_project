@@ -24,9 +24,13 @@ Step 5: Click buttons - click 'new palette' button for inspiration!
 [Shane Misra](https://github.com/sdmisra)\
 [Bri Bourassa](https://github.com/BriBourassa)
 
-## Context:
+## Context: ##
 This project was assigned in week 4 of module 1 of the Frontend Program, Monday, Jan 2nd. It was due one week later, on Jan 9th.
 
 ## Learning Goals ##
 
-
+Kara:\
+1. Practice flexbox and understand how to use it more efficiently
+2. Separate the Data Model and DOM and be careful how they are being used
+3. Use classes in a practical way
+4. Break functions down into smaller, more readable bits
