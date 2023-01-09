@@ -3,6 +3,7 @@ class Color{
       this.hexCode = hex;
       this.locked = false;
   }
+
   randomIndex(){
       this.hexCode ='#'
       for(var i = 0; i < 6; i++){
@@ -11,4 +12,3 @@ class Color{
       } return this.hexCode;
   };
 };
-

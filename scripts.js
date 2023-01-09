@@ -1,13 +1,13 @@
 var currentPalette = new Palette;
-var newPaletteButton = document.querySelector(".new-button");
-var currentPaletteSection = document.querySelector(".current-palette");
-var savedSection = document.querySelector(".saved-palettes");
-var savedButton = document.querySelector(".save-button");
+var newPaletteButton = document.querySelector("#newButton");
+var currentPaletteSection = document.querySelector("#currentPalette");
+var savedSection = document.querySelector("#savedPalettes");
+var savedButton = document.querySelector("#saveButton");
 
 window.addEventListener('load', getRandom);
 newPaletteButton.addEventListener('click', getRandom);
 currentPaletteSection.addEventListener('click', lockColor);
-savedButton.addEventListener('click', displaySavedPalette);
+savedButton.addEventListener('click', checkForDoubles);
 
 window.onkeydown = function getNewOnSpace(event) {
     if (event.keyCode == 32) {
@@ -36,7 +36,7 @@ function toggleToLock(event){
 function getRandom() {
     currentPalette.getRandomPalette();
     displayCurrent();
-}
+};
 
 function displayCurrent() {
     currentPaletteSection.innerHTML = ''
@@ -50,25 +50,33 @@ function displayCurrent() {
             </fieldset>
             `;
         } else {
-            currentPaletteSection.innerHTML +=
-            `
-            <fieldset class="${currentPalette.colors[i].hexCode}">
-            <div class="boxes color${i}"></div>
-            <label><img src="./assets/lock.png" alt="locked lock"><img src="./assets/unlock.png" class="hidden" alt="unlocked lock"> ${currentPalette.colors[i].hexCode}</label>
-            </fieldset>
-            `;
-        }
+            displayCurrentLocked(`${i}`);
+        } 
         var colorBrick = document.querySelector(`.color${i}`);
         colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`;
     }
 };
 
-function displaySavedPalette() {
-    if(currentPalette.savedColors.includes(currentPalette.id)) {
+
+function displayCurrentLocked(i) {
+    currentPaletteSection.innerHTML +=
+        `
+        <fieldset class="${currentPalette.colors[i].hexCode}">
+        <div class="boxes color${i}"></div>
+        <label><img src="./assets/lock.png" alt="locked lock"><img src="./assets/unlock.png" class="hidden" alt="unlocked lock"> ${currentPalette.colors[i].hexCode}</label>
+        </fieldset>
+        `;
+};
+
+function checkForDoubles() {
+    if(currentPalette.savedPaletteIds.includes(currentPalette.id)) {
         return;
-    }
+    } displaySavedPalette();
+};
+
+function displaySavedPalette() {
     savedSection.innerHTML += `<div class="lil-box-container" id="${currentPalette.id}"></div>`;
-    var lilBoxContainer = savedSection.lastChild
+    var lilBoxContainer = savedSection.lastChild;
     for(var i = 0; i < 5; i++){
         lilBoxContainer.innerHTML +=
         `
@@ -79,20 +87,24 @@ function displaySavedPalette() {
         `;
         }
         lilBoxContainer.innerHTML += '<button class="trash" onclick="doubleCheck(event)">🗑️</button>';
-        currentPalette.savedColors.push(currentPalette.id);
+        saveThisPalette(currentPalette.id);
+};
+
+function saveThisPalette(paletteId) {
+    currentPalette.savedPaletteIds.push(paletteId);
 };
 
 function doubleCheck(event) {
     var currentPaletteInfo = event.target.parentNode.innerHTML;
     var currentPaletteTarget = event.target.parentNode;
     if(event.target.innerText === "🗑️") {
-        event.target.parentNode.innerHTML = '<button class="confirm">Delete palette</button><button class="go-back">Actually, keep it!</button>';
-        var goBack = document.querySelector(".go-back");
+        event.target.parentNode.innerHTML = '<button id="confirm" class="confirm">Delete palette</button><button id="goBack" class="go-back">Actually, keep it!</button>';
+        var confirm = document.querySelector("#confirm");
+        var goBack = document.querySelector("#goBack");
         goBack.addEventListener('click', function() {putPaletteBack(currentPaletteInfo, currentPaletteTarget)});
-        var confirm = document.querySelector(".confirm");
         confirm.addEventListener('click', deletePalette);
     }
-}
+};
 
 function putPaletteBack(currentPaletteInfo, currentPaletteTarget) {
     var newNode = document.createElement("div");
@@ -102,9 +114,9 @@ function putPaletteBack(currentPaletteInfo, currentPaletteTarget) {
     currentPaletteTarget.innerHTML = '';
     currentPaletteTarget.insertAdjacentElement('afterend', newNode);
     currentPaletteTarget.remove();
-}
+};
 
 function deletePalette(event) {
+    currentPalette.savedPaletteIds.splice(currentPalette.savedPaletteIds.indexOf(event.target.parentNode.id), 1);
     event.target.parentNode.remove();
-    currentPalette.savedColors.splice(currentPalette.savedColors.indexOf(event.target.parentNode.id), 1);
 };

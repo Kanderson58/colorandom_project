@@ -75,7 +75,7 @@ label {
     margin: 3%;
 }
 
-button:hover {
+button:hover:not(.trash) {
     transition: 1s ease-in-out;
     background: rebeccapurple;
     cursor: pointer;
