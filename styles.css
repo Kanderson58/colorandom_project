@@ -45,15 +45,6 @@ label {
     padding: 2%;
 }
 
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-}
-
 .button, .confirm, .go-back {
     font-family: 'Comic Neue', cursive;
     align-self: center;
