@@ -27,10 +27,16 @@ Step 5: Click buttons - click 'new palette' button for inspiration!
 ## Context: ##
 This project was assigned in week 4 of module 1 of the Frontend Program, Monday, Jan 2nd. It was due one week later, on Jan 9th.
 
-## Learning Goals ##
+## Learning Goals / Achievements ##
 
 Kara:
 1. Practice flexbox and understand how to use it more efficiently
 2. Separate the Data Model and DOM and be careful how they are being used
 3. Use classes in a practical way
 4. Break functions down into smaller, more readable bits
+
+Shane:
+1. Get more practice with github workflow, learn how to develop a common set of standards
+2. Learn to recognize elements of DOM and use good practices to interact with DOM
+3. Practice CSS styling, flexbox
+4. Work with classes in new ways
