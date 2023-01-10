@@ -18,6 +18,11 @@ Step 3: In terminal - change directory(cd) into newly cloned directory, can also
 Step 4: Open index.html file in browser\
 Step 5: Click buttons - click 'new palette' button for inspiration!
 
+## Preview of App:
+
+<img width="1427" alt="Screen Shot 2023-01-09 at 2 04 07 PM" src="https://user-images.githubusercontent.com/111149043/211421134-e4629a09-48b5-4dde-9e7a-ea8b3eb6cd6b.png">
+
+
 ## Contributors ##
 [Isaiah Richardson](https://github.com/CapCinematic)\
 [Kara Anderson](https://github.com/Kanderson58)\
@@ -35,8 +40,30 @@ Kara:
 3. Use classes in a practical way
 4. Break functions down into smaller, more readable bits
 
+
+
+Bri:
+1. Practice coordinating branches, git workflow and PRs with multiple teammates 
+2. Get out of my comfort zone and challenging myself by learning different approaches and tactics from my teammates
+3. Improve my skills with CSS and styling
+4. Practice using the Data Model vs DOM where applicable
+
+
 Shane:
 1. Get more practice with github workflow, learn how to develop a common set of standards
 2. Learn to recognize elements of DOM and use good practices to interact with DOM
 3. Practice CSS styling, flexbox
 4. Work with classes in new ways
+
+
+
+Isaiah:
+1. Write semantic HTML and efficient CSS to form a usable UI
+Practicing the syntax for both in order to hammer home what a fully functional site looks like behind the scenes.
+2. Write clean, DRY JavaScript and leverage classes, creating and using an effective data model
+Learning how to drive and understand navigators clearly, working together to find the cleanest most effect method.
+3. Manipulate the page after it has loaded adding, removing, and updating elements on the DOM
+Checking our working live to see what is changing and what looks good and works well. Possibly comparing wit other sites and using dev tools!
+
+
+
