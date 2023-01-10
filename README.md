@@ -32,7 +32,7 @@ Step 5: Click buttons - click 'new palette' button for inspiration!
 ## Context: ##
 This project was assigned in week 4 of module 1 of the Frontend Program, Monday, Jan 2nd. It was due one week later, on Jan 9th.
 
-## Learning Goals ##
+## Learning Goals / Achievements ##
 
 Kara:
 1. Practice flexbox and understand how to use it more efficiently
@@ -40,17 +40,22 @@ Kara:
 3. Use classes in a practical way
 4. Break functions down into smaller, more readable bits
 
+
+
 Bri:
 1. Practice coordinating branches, git workflow and PRs with multiple teammates 
 2. Get out of my comfort zone and challenging myself by learning different approaches and tactics from my teammates
 3. Improve my skills with CSS and styling
 4. Practice using the Data Model vs DOM where applicable
 
+
 Shane:
 1. Get more practice with github workflow, learn how to develop a common set of standards
 2. Learn to recognize elements of DOM and use good practices to interact with DOM
 3. Practice CSS styling, flexbox
 4. Work with classes in new ways
+
+
 
 Isaiah:
 1. Write semantic HTML and efficient CSS to form a usable UI
@@ -59,5 +64,6 @@ Practicing the syntax for both in order to hammer home what a fully functional s
 Learning how to drive and understand navigators clearly, working together to find the cleanest most effect method.
 3. Manipulate the page after it has loaded adding, removing, and updating elements on the DOM
 Checking our working live to see what is changing and what looks good and works well. Possibly comparing wit other sites and using dev tools!
+
 
 

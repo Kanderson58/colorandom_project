@@ -45,15 +45,6 @@ label {
     padding: 2%;
 }
 
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-}
-
 .button, .confirm, .go-back {
     font-family: 'Comic Neue', cursive;
     align-self: center;
@@ -75,7 +66,7 @@ label {
     margin: 3%;
 }
 
-button:hover {
+button:hover:not(.trash) {
     transition: 1s ease-in-out;
     background: rebeccapurple;
     cursor: pointer;

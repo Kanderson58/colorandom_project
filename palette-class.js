@@ -3,8 +3,9 @@ class Palette{
       this.id = Date.now();
       this.colors = [];
       this.lockedColors = [];
-      this.savedColors = [];
+      this.savedPaletteIds = [];
   }
+  
   getRandomPalette(){
       this.id = Date.now();
       this.colors = [];
@@ -19,6 +20,7 @@ class Palette{
           this.colors.push(randomColor);
        }
   };
+
   lockThisColor(currentColorHex) {
       for(var i = 0; i < this.colors.length; i++) {
           if (currentColorHex === this.colors[i].hexCode && !this.colors[i].locked && this.lockedColors.length < 5) {
@@ -27,14 +29,15 @@ class Palette{
               this.removeFromLocked(this.colors[i]);
           } 
       } 
-  }
+  };
+
   addToLocked(color) {
       color.locked = true;
       this.lockedColors.push(color);
-  }
+  };
+
   removeFromLocked(color) {
       color.locked = false;
       this.lockedColors.splice(this.lockedColors.indexOf(color), 1);
   }
 };
-
