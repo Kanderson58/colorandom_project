@@ -50,22 +50,17 @@ function displayCurrent() {
             </fieldset>
             `;
         } else {
-            displayCurrentLocked(`${i}`);
+            currentPaletteSection.innerHTML +=
+            `
+            <fieldset class="${currentPalette.colors[i].hexCode}">
+            <div class="boxes color${i}"></div>
+            <label><img src="./assets/lock.png" alt="locked lock"><img src="./assets/unlock.png" class="hidden" alt="unlocked lock"> ${currentPalette.colors[i].hexCode}</label>
+            </fieldset>
+            `;
         } 
         var colorBrick = document.querySelector(`.color${i}`);
         colorBrick.style.backgroundColor = `${currentPalette.colors[i].hexCode}`;
     }
-};
-
-
-function displayCurrentLocked(i) {
-    currentPaletteSection.innerHTML +=
-        `
-        <fieldset class="${currentPalette.colors[i].hexCode}">
-        <div class="boxes color${i}"></div>
-        <label><img src="./assets/lock.png" alt="locked lock"><img src="./assets/unlock.png" class="hidden" alt="unlocked lock"> ${currentPalette.colors[i].hexCode}</label>
-        </fieldset>
-        `;
 };
 
 function checkForDoubles() {
