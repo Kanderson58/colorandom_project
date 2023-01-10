@@ -45,3 +45,9 @@ Bri:
 2. Get out of my comfort zone and challenging myself by learning different approaches and tactics from my teammates
 3. Improve my skills with CSS and styling
 4. Practice using the Data Model vs DOM where applicable
+
+Shane:
+1. Get more practice with github workflow, learn how to develop a common set of standards
+2. Learn to recognize elements of DOM and use good practices to interact with DOM
+3. Practice CSS styling, flexbox
+4. Work with classes in new ways
