@@ -51,3 +51,13 @@ Shane:
 2. Learn to recognize elements of DOM and use good practices to interact with DOM
 3. Practice CSS styling, flexbox
 4. Work with classes in new ways
+
+Isaiah:
+1. Write semantic HTML and efficient CSS to form a usable UI
+Practicing the syntax for both in order to hammer home what a fully functional site looks like behind the scenes.
+2. Write clean, DRY JavaScript and leverage classes, creating and using an effective data model
+Learning how to drive and understand navigators clearly, working together to find the cleanest most effect method.
+3. Manipulate the page after it has loaded adding, removing, and updating elements on the DOM
+Checking our working live to see what is changing and what looks good and works well. Possibly comparing wit other sites and using dev tools!
+
+
